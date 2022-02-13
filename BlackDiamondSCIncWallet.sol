@@ -881,21 +881,21 @@ contract BlackDiamonSCIncWallet is Ownable {
     using SafeERC20 for IERC20;
     using SafeMath for uint256;
 
-    uint256 swappedBlackDiamondSCInc;
-    uint256 swappedMiniThorGodsHammer;
+    uint256 swappedAngryVirgo;
+    uint256 swappedDarkVirgo;
 
-    IERC20 Bdsci;
-    IERC20 Bdsci1;
-    IERC20 Mtgh;
-    IERC20 Avax;
+    IERC20 aVirgo;
+    IERC20 aVirgoV2;
+    IERC20 dVirgo;
+    IERC20 dVirgoV2;
 
-    constructor(address _aHippo, address _aHippoV2, address _dHippo, address _dHippoV2) public {
-        Bdsci = IERC20(_Bdsci);
-        Bdsci1 = IERC20(_Bdsci1);
-        Mtgh = IERC20(_Mtgh);
-        Avax = IERC20(_Avax);
-        SwappedBlackDiamondSCInc = 0;
-        SwappedMiniThorGodsHammer= 0;
+    constructor(address _aVirgo, address _aVirgoV2, address _dVirgo, address _dVirgoV2) public {
+        aVirgo = IERC20(_aVirgo);
+        aVirgoV2 = IERC20(_aVirgoV2);
+        dVirgo = IERC20(_dVirgo);
+        dVirgoV2 = IERC20(_dVirgoV2);
+        SwappedAngryVirgo = 0;
+        SwappedDarkVirgo = 0;
     }
 
     function transfer(address token, uint256 amount) public onlyOwner {
@@ -903,16 +903,16 @@ contract BlackDiamonSCIncWallet is Ownable {
         token.safeTransfer(msg.sender, amount);
     }
 
-    function swapBlackDiamondSCInc(uint256 amount) public {
-        swappedBlackDiamondSCInc = swappedBlackDiamondSCInc.add(amount);
-        Bdsci.safeTransferFrom(msg.sender, address(this), amount);
-        Bdsci1.safeTransfer(msg.sender, amount * 2);
+    function swapAngryVirgo(uint256 amount) public {
+        swappedAngryVirgo = swappedAngryVirgo.add(amount);
+        aVirgo.safeTransferFrom(msg.sender, address(this), amount);
+        aVirgoV2.safeTransfer(msg.sender, amount * 2);
     }
 
-    function swapMiniThorGdsHammer(uint256 amount) public {
-        swappedMiniThorGodsHammer = swappedMiniThorGodsHammer.add(amount);
-        Mtgh.safeTransferFrom(msg.sender, address(this), amount);
-        Avax.safeTransfer(msg.sender, amount * 2);
+    function swappedDarkVirgo(uint256 amount) public {
+        swappedDarkVirgi = swappedDarkVirgo.add(amount);
+        dVirgo.safeTransferFrom(msg.sender, address(this), amount);
+        dVirgoV2.safeTransfer(msg.sender, amount * 2);
     }
 
 }
