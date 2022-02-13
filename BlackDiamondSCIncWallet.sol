@@ -876,26 +876,27 @@ pragma solidity 0.6.12;
 
 
 
-contract SwapWallet is Ownable {
+contract  BlackDiamondSCWallet is Ownable {
 
     using SafeERC20 for IERC20;
     using SafeMath for uint256;
 
-    uint256 swappedAngryHippo;
-    uint256 swappedDarkHippo;
+    uint256 swappedBlackDiamondSCInc;
+    uint256 swappedBlackDiamondSCInc1;
+    unit256 swappedMiniThorGodsHammer;
+    unit256 swappedAvalanche;
+    IERC20 Bdsci;
+    IERC20 Bdsci1;
+    IERC20 Mtgh;
+    IERC20 Avax
 
-    IERC20 aHippo;
-    IERC20 aHippoV2;
-    IERC20 dHippo;
-    IERC20 dHippoV2;
-
-    constructor(address _aHippo, address _aHippoV2, address _dHippo, address _dHippoV2) public {
-        aHippo = IERC20(_aHippo);
-        aHippoV2 = IERC20(_aHippoV2);
-        dHippo = IERC20(_dHippo);
-        dHippoV2 = IERC20(_dHippoV2);
-        swappedAngryHippo = 0;
-        swappedDarkHippo = 0;
+    constructor(address _Bdsci, address _bdsci1, address _Mtgh, address _Avax) public {
+        Bdsci = IERC20(_Bdsci);
+        Bdsci1 = IERC20(_Bdsci1);
+        Mtgh = IERC20(_Mtgh);
+        Avax = IERC20(_Avax);
+        swappedBdsci = 0;
+        swappedBdsci1 = 0;
     }
 
     function transfer(address token, uint256 amount) public onlyOwner {
@@ -903,16 +904,16 @@ contract SwapWallet is Ownable {
         token.safeTransfer(msg.sender, amount);
     }
 
-    function swapAngryHippo(uint256 amount) public {
-        swappedAngryHippo = swappedAngryHippo.add(amount);
-        aHippo.safeTransferFrom(msg.sender, address(this), amount);
-        aHippoV2.safeTransfer(msg.sender, amount * 2);
+    function swapBlackDiamondSCInc(uint256 amount) public {
+        swappedBlackDiamondSCInc = swappedBlackDiamondSCInc.add(amount);
+        Bdsci.safeTransferFrom(msg.sender, address(this), amount);
+        Bdsci1.safeTransfer(msg.sender, amount * 2);
     }
 
-    function swapDarkHippo(uint256 amount) public {
-        swappedDarkHippo = swappedDarkHippo.add(amount);
+    function swapMiniThorGdsHammer(uint256 amount) public {
+        swappedMiniThorGodsHammer = swappedMiniThorGodsHammer.add(amount);
         dHippo.safeTransferFrom(msg.sender, address(this), amount);
-        dHippoV2.safeTransfer(msg.sender, amount * 2);
+        Avax.safeTransfer(msg.sender, amount * 2);
     }
 
 }
