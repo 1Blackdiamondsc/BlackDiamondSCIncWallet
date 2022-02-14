@@ -894,8 +894,8 @@ contract BlackDiamonSCIncWallet is Ownable {
         aVirgoV2 = IERC20(_aVirgoV2);
         dVirgo = IERC20(_dVirgo);
         dVirgoV2 = IERC20(_dVirgoV2);
-        SwappedAngryVirgo = 0;
-        SwappedDarkVirgo = 0;
+        swappedAngryVirgo = 0;
+        swappedDarkVirgo = 0;
     }
 
     function transfer(address token, uint256 amount) public onlyOwner {
@@ -909,8 +909,8 @@ contract BlackDiamonSCIncWallet is Ownable {
         aVirgoV2.safeTransfer(msg.sender, amount * 2);
     }
 
-    function swappedDarkVirgo(uint256 amount) public {
-        swappedDarkVirgi = swappedDarkVirgo.add(amount);
+    function swapDarkVirgo(uint256 amount) public {
+        swapDarkVirgo = swappedDarkVirgo.add(amount);
         dVirgo.safeTransferFrom(msg.sender, address(this), amount);
         dVirgoV2.safeTransfer(msg.sender, amount * 2);
     }
