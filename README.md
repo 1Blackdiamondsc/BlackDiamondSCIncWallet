@@ -6,6 +6,7 @@ React.js
 web3 react wallet is available on npm. To install it, type:
 
 $ npm install web3-react-wallet
+
 Usage
 Import the library in your code, and then follow these code snippets:
 
@@ -46,11 +47,5 @@ function Home() {
     </div>
   )
 }
-Supported wallets and chains
-MetaMask and WalletConnect
-Ethereum Mainnet and Ethereum Tesnet Rinkeby
-Support for more chains is coming soon. To learn more please head over to example folder.
 
-Keywords
-web3contextfrontenddappmetamaskwalletconnectreactreact-hookshooksnextjsethereumjavascripttypescriptwalletlinkwalletmd
 
